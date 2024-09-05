@@ -1,0 +1,102 @@
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    background-color: #0e1f40;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background:
+        linear-gradient(150deg, #ff3e9d 0%, transparent 80%);
+    animation-name: gradient-arrive;
+    animation-duration: 1s;
+
+    .calculator {
+        display: grid;
+        grid-template-rows:
+            minmax(80px, auto) repeat(5, 60px);
+        grid-template-columns: repeat(4, 60px);
+        justify-content: center;
+        width: fit-content;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, .18);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, .37);
+        padding: 1.4rem;
+        border-radius: 12px;
+        gap: .7rem;
+
+        animation-name: calculator-arrive;
+        animation-duration: .8s;
+        animation-delay: 1s;
+        animation-fill-mode: backwards;
+
+        button {
+            border: none;
+            font-family: inherit;
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #fff;
+            background-color: rgba(0, 0, 0, .05);
+            border: inherit;
+            border-radius: 10%;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: .2s;
+
+            &:hover {
+                background-color: rgba(0, 0, 0, .15);
+            }
+        }
+
+        .span-2 {
+            grid-column: span 2;
+        }
+
+        .output {
+            font-size: 2rem;
+            background-color: inherit;
+            color: #fff;
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-end;
+            word-break: break-all;
+            border-radius: inherit;
+
+            .prev-display {
+                font-size: 1.3rem;
+                font-weight: 400;
+                color: rgba(255, 255, 255, .8);
+            }
+        }
+    }
+}
+
+@keyframes gradient-arrive {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+@keyframes calculator-arrive {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
